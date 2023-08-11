@@ -9,7 +9,5 @@ export default (request: VercelRequest, response: VercelResponse) => {
     if (method != 'POST') return response.status(405).send('Method Not Allowed').end();
     const secretKey = request.body?.secretKey || '';
     const token = request.body?.token || '';
-    console.log(secretKey)
-    console.log(token)
     response.status(200).send({ data: verify(`${token}`,`${salt}.${secretKey}`) });
 }
