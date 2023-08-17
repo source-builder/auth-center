@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const { SECRET_KEY: secretKey } = process.env;
+const { SECRET_KEY: secretKey, DATABASE_URL: databaseUrl } = process.env;
 
 export default (request: VercelRequest, response: VercelResponse) => {
     let error = '';
@@ -14,5 +14,5 @@ export default (request: VercelRequest, response: VercelResponse) => {
 }
 
 const ENV = {
-    'SECRET_KEY': secretKey
+    'SECRET_KEY': secretKey, 'DATABASE_URL': databaseUrl
 }
